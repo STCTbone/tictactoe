@@ -7,9 +7,10 @@ gem 'rails', '3.2.13'
 
 
 group :development, :test do
-gem 'sqlite3'
-gem 'cucumber-rails', require: false
-gem 'rspec-rails'
+  gem 'sqlite3'
+  gem 'cucumber-rails', require: false
+  gem 'rspec-rails'
+  gem 'database_cleaner'
 end
 
 
