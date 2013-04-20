@@ -13,5 +13,5 @@ Then(/^I see a blank tic tac toe board$/) do
 end
 
 Then(/^a box saying it's my turn$/) do
-  pending # express the regexp above with the code you wish you had
+  page.should have_content "Player 1's Turn"
 end
