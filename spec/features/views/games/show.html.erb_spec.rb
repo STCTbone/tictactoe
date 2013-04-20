@@ -19,7 +19,7 @@ describe "games/show.html.erb" do
         visit root_path
         click_link "New Game"
         click_link "square_5"
-        current_path.should == "/games/move"
+        current_url.should == current_host + "/games/move?square=5"
       end
     end
   end
