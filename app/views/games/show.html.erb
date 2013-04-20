@@ -4,7 +4,7 @@
   <% 3.times do |i| %>
     <tr>
     <% 3.times do |j| %>
-      <td><%= link_to "_", move_path(square: (i * 3)  + (j + 1)), id: "square_#{(i * 3)  + (j + 1)}" %></td>
+      <td><%= link_to "_", move_path(square: (i * 3)  + (j + 1), game: params[:id]), id: "square_#{(i * 3)  + (j + 1)}", method: "put" %></td>
     <% end %>
     </tr>
   <% end %>

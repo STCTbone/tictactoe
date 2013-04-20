@@ -1,5 +1,9 @@
 require 'spec_helper'
 
 describe Game do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "game.move" do
+    context "it's the player's move" do
+      it "marks the appropriate square with an X"
+    end
+  end
 end
