@@ -1,11 +1,13 @@
 <h1>Tic Tac Toeeeeee!</h1>
 <h2>Player 1's Turn</h2>
 <table>
-  <% 3.times do |i| %>
-    <tr>
-    <% 3.times do |j| %>
-      <td><%= link_to "_", move_path(square: (i * 3)  + (j + 1), game: params[:id]), id: "square_#{(i * 3)  + (j + 1)}", method: "put" %></td>
+    <% @game.squares.each do |square| %>
+      <% if square.position % 3 == 1 %>
+        <tr><td><%= link_to square.mark || "_", move_path(square: square.position, game: params[:id]), id: "square_#{square.position}", method: "put" %></td>
+      <% elsif square.position % 3 == 0 %>
+        <td><%= link_to square.mark || "_", move_path(square: square.position, game: params[:id]), id: "square_#{square.position}", method: "put" %></td></tr>
+      <% else %>
+        <td><%= link_to square.mark || "_", move_path(square: square.position, game: params[:id]), id: "square_#{square.position}", method: "put" %></td>
+      <% end %>
     <% end %>
-    </tr>
-  <% end %>
 </table>

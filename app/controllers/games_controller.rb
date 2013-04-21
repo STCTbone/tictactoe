@@ -6,7 +6,7 @@ class GamesController < ApplicationController
     redirect_to game_path(game)
   end
   def show
-    
+    @game = Game.find_by_id(params[:id])    
   end
   def move
     game = Game.find_by_id(params[:game])

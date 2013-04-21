@@ -18,6 +18,10 @@ describe "games/show.html.erb" do
       it "directs to games#move with params[:square] == the square clicked" do
         pending "need to learn XPath to do this right"
       end 
+      it "should update with the latest moves" do
+        click_link "square_5"
+        page.should have_selector('a#square_5', text:"X")
+      end
     end
   end
 end
