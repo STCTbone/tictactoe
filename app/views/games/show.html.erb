@@ -1,13 +1,13 @@
 <h1>Tic Tac Toeeeeee!</h1>
 <h2>Player 1's Turn</h2>
 <table>
-    <% @game.squares.each do |square| %>
-      <% if square.position % 3 == 1 %>
-        <tr><td><%= link_to square.mark || "_", move_path(square: square.position, game: params[:id]), id: "square_#{square.position}", method: "put" %></td>
-      <% elsif square.position % 3 == 0 %>
-        <td><%= link_to square.mark || "_", move_path(square: square.position, game: params[:id]), id: "square_#{square.position}", method: "put" %></td></tr>
+    <% @game.squares.each_with_index do |square, index| %>
+      <% if (index + 1) % 3 == 1 %>
+        <tr><td><%= link_to square || "_", move_path(square: (index), game: params[:id]), id: "square_#{(index)}", method: "put" %></td>
+      <% elsif (index + 1) % 3 == 0 %>
+        <td><%= link_to square || "_", move_path(square: (index), game: params[:id]), id: "square_#{(index)}", method: "put" %></td></tr>
       <% else %>
-        <td><%= link_to square.mark || "_", move_path(square: square.position, game: params[:id]), id: "square_#{square.position}", method: "put" %></td>
+        <td><%= link_to square || "_", move_path(square: (index), game: params[:id]), id: "square_#{(index)}", method: "put" %></td>
       <% end %>
     <% end %>
 </table>
