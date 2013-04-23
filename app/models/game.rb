@@ -24,11 +24,8 @@ class Game < ActiveRecord::Base
       test_game.squares << square
     end
     test_game.squares.each_with_index do | square, index |
-      puts index
       if square == nil
-        puts "found an empty square!"
         test_game.squares[index] = "O" # If marking that spot would make the human win, the AI moves there instead.
-        puts test_game.inspect
         if test_game.winner == "O"
           return index
         else
