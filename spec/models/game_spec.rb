@@ -25,7 +25,7 @@ describe Game do
     it "return a blocking move for the AI to make" do
       game.move(0, :player)
       game.move(1, :player)
-      game.ai_move.should == 2
+      GameKeeper.ai_move(game).should == 2
     end
   end
 end

@@ -6,4 +6,4 @@ Feature: Game Moves
   Scenario: Player makes a move
     Given I am playing a game and it is my turn
     When I click on an unoccupied square
-    Then that square is filled with an "X"
+    Then that square is filled with an "O"
