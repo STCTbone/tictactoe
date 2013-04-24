@@ -20,7 +20,7 @@ describe "games/show.html.erb" do
       end 
       it "should update with the latest moves" do
         click_link "square_5"
-        page.should have_selector('a#square_5', text:"X")
+        page.should have_selector('a#square_5', text:"O")
       end
     end
   end

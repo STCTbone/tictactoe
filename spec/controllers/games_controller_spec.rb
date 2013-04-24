@@ -1,5 +1,4 @@
 require 'spec_helper'
-
 describe GamesController do
   let(:game) {mock_model(Game).as_null_object}
    describe "games#create" do
