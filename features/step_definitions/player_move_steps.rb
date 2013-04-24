@@ -9,5 +9,5 @@ When(/^I click on an unoccupied square$/) do
 end
 
 Then(/^that square is filled with an "(.*?)"$/) do |arg1|
-  page.should have_selector("a#square_5", text: "X")
+  page.should have_selector("a#square_5", text: "O")
 end
