@@ -8,4 +8,3 @@ Scenario: Start a new game
     Given I am on the homepage
     When  I click on the New Game link
     Then I see a blank tic tac toe board
-    And a box saying it's my turn

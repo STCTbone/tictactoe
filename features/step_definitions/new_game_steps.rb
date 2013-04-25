@@ -12,6 +12,3 @@ Then(/^I see a blank tic tac toe board$/) do
   page.should have_selector('td', count: 9)
 end
 
-Then(/^a box saying it's my turn$/) do
-  page.should have_content "Player 1's Turn"
-end
