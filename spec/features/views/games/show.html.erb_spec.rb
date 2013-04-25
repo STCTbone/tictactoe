@@ -20,7 +20,13 @@ describe "games/show.html.erb" do
       end 
       it "should update with the latest moves" do
         click_link "square_5"
-        page.should have_selector('a#square_5', text:"O")
+        page.should have_selector('td#square_5', text:"O")
+      end
+    end
+    context "the square is already filled" do
+      it "the square should not be clickable" do
+        click_link "square_0"
+        page.should_not have_selector('a#square_0')
       end
     end
   end
