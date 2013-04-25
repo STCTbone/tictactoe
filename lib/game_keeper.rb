@@ -18,7 +18,7 @@ module GameKeeper
       rand_move = rand(0..8) #keep generating random positions until we find an empty one for a random move
     end while !game.squares[rand_move].nil?
     return rand_move
-  end
+end
 
   def self.winner(game)
     current_state_x = Array.new
@@ -44,11 +44,17 @@ module GameKeeper
      # diagonal wins
      [0, 4, 8],
      [6, 4, 2]
-    ].collect { |positions|
-      ( game.squares[positions[0]] == game.squares[positions[1]] &&
-        game.squares[positions[1]] == game.squares[positions[2]] &&
-        game.squares[positions[0]] ) || nil
-    }.compact.first
+    ]
+
+    winners.each do |winner|
+      if winner & current_state_x == winner
+        return "X"
+      elsif winner & current_state_o == winner
+        return "O"
+      end
+    end
+
+
   end  
 end
 
