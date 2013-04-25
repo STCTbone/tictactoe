@@ -51,6 +51,8 @@ end
         return "X"
       elsif winner & current_state_o == winner
         return "O"
+      else
+        return nil
       end
     end
 
