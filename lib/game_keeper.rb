@@ -4,7 +4,17 @@ module GameKeeper
     game.squares.each do |square| # need a deep copy as we'll be playing with poential movies
       test_game.squares << square
     end
-    test_game.squares.each_with_index do | square, index |
+    test_game.squares.each_with_index do | square, index | # The AI looks for winning moves
+      if square == nil
+        test_game.squares[index] = "X" # If marking that spot would make the AI win, the AI moves there.
+        if GameKeeper.winner(test_game) == "X"
+          return index
+        else
+          test_game.squares[index] = nil
+        end
+      end
+    end
+    test_game.squares.each_with_index do | square, index | # if there's no winning move for the AI, the AI looks for blocking moves instead.
       if square == nil
         test_game.squares[index] = "O" # If marking that spot would make the human win, the AI moves there instead.
         if GameKeeper.winner(test_game) == "O"
@@ -14,6 +24,7 @@ module GameKeeper
         end
       end
     end
+    
     begin
       rand_move = rand(0..8) #keep generating random positions until we find an empty one for a random move
     end while !game.squares[rand_move].nil?
@@ -51,12 +62,10 @@ end
         return "X"
       elsif winner & current_state_o == winner
         return "O"
-      else
-        return nil
       end
     end
 
-
+    return nil #returns nil if there's no winner
   end  
 end
 
