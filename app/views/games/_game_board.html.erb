@@ -4,19 +4,19 @@
       <% @game.squares.each_with_index do |square, index| %>
         <% if (index + 1) % 3 == 1 %>
           <% if square.nil? %>
-          <tr><td><%= link_to "_", move_path(square: (index), game: params[:id]), {id: "square_#{(index)}", method: "put", class: "center-link"} %></td>
+          <tr><td><%= link_to '_', move_path(square: (index), game: params[:id]), {id: "square_#{(index)}", method: 'put', class: 'center-link'} %></td>
           <% else %>
             <tr><td id="square_<%= index %>"><%= square %></td>
           <% end %>
         <% elsif (index + 1) % 3 == 0 %>
           <% if square.nil? %>
-          <td><%= link_to "_", move_path(square: (index), game: params[:id]), {id: "square_#{(index)}", method: "put", class: "center-link"} %></td></tr>
+          <td><%= link_to '_', move_path(square: (index), game: params[:id]), {id: "square_#{(index)}", method: 'put', class: 'center-link'} %></td></tr>
           <% else %>
             <td id="square_<%= index %>" ><%= square %></td></tr>
           <% end %>
         <% else %>
           <% if square.nil? %>
-            <td><%= link_to "_", move_path(square: (index), game: params[:id]), {id: "square_#{(index)}", method: "put", class: "center-link"} %></td>
+            <td><%= link_to '_', move_path(square: (index), game: params[:id]), {id: "square_#{(index)}", method: 'put', class: 'center-link'} %></td>
           <% else %>
             <td id="square_<%= index %>"><%= square %> </td>
           <% end %>

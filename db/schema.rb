@@ -13,11 +13,17 @@
 
 ActiveRecord::Schema.define(:version => 20130423033405) do
 
+  #noinspection RubyQuotedStringsInspection
   create_table "games", :force => true do |t|
+    #noinspection RubyQuotedStringsInspection
     t.datetime "created_at",                   :null => false
+    #noinspection RubyQuotedStringsInspection
     t.datetime "updated_at",                   :null => false
+    #noinspection RubyQuotedStringsInspection,RubyQuotedStringsInspection
     t.string   "player_turn", :default => "X"
+    #noinspection RubyQuotedStringsInspection
     t.string   "moves"
+    #noinspection RubyQuotedStringsInspection
     t.string   "squares"
   end
 

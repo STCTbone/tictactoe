@@ -1,13 +1,13 @@
 module GameKeeper
  def self.ai_move(game)
     test_game = Game.new
-    game.squares.each do |square| # need a deep copy as we'll be playing with poential movies
+    game.squares.each do |square| # need a deep copy as we'll be playing with potential movies
       test_game.squares << square
     end
     test_game.squares.each_with_index do | square, index | # The AI looks for winning moves
       if square == nil
-        test_game.squares[index] = "X" # If marking that spot would make the AI win, the AI moves there.
-        if GameKeeper.winner(test_game) == "X"
+        test_game.squares[index] = 'X' # If marking that spot would make the AI win, the AI moves there.
+        if GameKeeper.winner(test_game) == 'X'
           return index
         else
           test_game.squares[index] = nil
@@ -16,15 +16,16 @@ module GameKeeper
     end
     test_game.squares.each_with_index do | square, index | # if there's no winning move for the AI, the AI looks for blocking moves instead.
       if square == nil
-        test_game.squares[index] = "O" # If marking that spot would make the human win, the AI moves there instead.
-        if GameKeeper.winner(test_game) == "O"
+        test_game.squares[index] = 'O' # If marking that spot would make the human win, the AI moves there instead.
+        if GameKeeper.winner(test_game) == 'O'
           return index
         else
           test_game.squares[index] = nil
         end
       end
     end
-    
+
+    #noinspection RubyScope
     begin
       rand_move = rand(0..8) #keep generating random positions until we find an empty one for a random move
     end while !game.squares[rand_move].nil?
@@ -35,9 +36,9 @@ end
     current_state_x = Array.new
     current_state_o = Array.new
     game.squares.each_with_index do |square, index|
-      if square == "X"
+      if square == 'X'
         current_state_x << index
-      elsif square == "O"
+      elsif square == 'O'
           current_state_o << index
       end
     end
@@ -59,9 +60,9 @@ end
 
     winners.each do |winner|
       if winner & current_state_x == winner
-        return "X"
+        return 'X'
       elsif winner & current_state_o == winner
-        return "O"
+        return 'O'
       end
     end
 

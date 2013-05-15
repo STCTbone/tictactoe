@@ -8,5 +8,5 @@ When(/^I click on an unoccupied square$/) do
 end
 
 Then(/^that square is filled with an "(.*?)"$/) do |arg1|
-  page.should have_selector("td#square_5", text: "O")
+  page.should have_selector("td#square_5", text: arg1)
 end
