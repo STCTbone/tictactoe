@@ -6,21 +6,21 @@
   </div>
 
 <% if @winner == "X" %>
-  <div class="row">
+  <div class="row" id="winner">
     <div class="span6 offset3">
       <h2 class="text-error text-center">You lost!</h1> <br>
       <p class="text-center"><%= link_to "Play Again?", games_path, method: "post", class:"text-success"%></p>
     </div>
   </div>
 <% elsif @winner == "O" %>
-  <div class="row">
+  <div class="row" id="winner">
     <div class="span6 offset3">
       <h2 class="text-success text-center">You won!</h1> <br>
       <p class="text-center"><%= link_to "Play Again?", games_path, method: "post", class:"text-success"%></p>
     </div>
   </div>
 <% elsif @game.squares.compact.count == 9 %>
-  <div class="row">
+  <div class="row" id="winner">
     <div class="span6 offset3">
       <h2 class="text-warning text-center">It's a draw!</h1>
       <!-- note that we don't need a "you won! message because the player can't win1" -->
