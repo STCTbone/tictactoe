@@ -10,12 +10,19 @@ class GamesController < ApplicationController
   def show
     @game = Game.find_by_id(params[:id])    
     @winner = GameKeeper::winner(@game)
+
   end
   def move
-    game = Game.find_by_id(params[:game])
-    game.move(params[:square].to_i, :player)
-    game.move(GameKeeper.ai_move(game), :ai) unless game.squares.compact.count == 9 
+    @game = Game.find_by_id(params[:game])
+    @player_square = params[:square].to_i
+    @game.move(@player_square, :player)
+    @ai_square = GameKeeper.ai_move(@game)
+    @game.move(@ai_square, :ai) unless @game.squares.compact.count == 9
+    respond_to do |format|
+      format.html redirect_to game_path(@game)
+      format.json { head :no_content }
+      format.js
+    end
 
-    redirect_to game_path(game)
   end
 end
