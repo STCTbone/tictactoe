@@ -6,10 +6,16 @@
  * To change this template use File | Settings | File Templates.
  */
 
-$(document).ready(function(){
-    $("#square_<%= @ai_square %>").after("<td>X</td>");
-    $("#square_<%= @ai_square %>").remove();
-    $("#square_<%= @player_square %>").after("<td>O</td>");
-    $("#square_<%= @player_square %>").remove();
-});
+    var ai_square = $("#square_<%= @ai_square %>");
+    ai_square.after("X");
+    ai_square.remove();
+
+    var player_square = $("#square_<%= @player_square %>");
+    player_square.after("O");
+    player_square.remove();
+
+    var winner = <%= @winner  %>;
+    if(winner) {
+         $('#winner').slideToggle("slow");
+    }
 

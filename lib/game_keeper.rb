@@ -7,7 +7,7 @@ module GameKeeper
     test_game.squares.each_with_index do | square, index | # The AI looks for winning moves
       if square == nil
         test_game.squares[index] = "X" # If marking that spot would make the AI win, the AI moves there.
-        if GameKeeper.winner(test_game) == "X"
+        if GameKeeper.winner(test_game) == "You Lost!"
           return index
         else
           test_game.squares[index] = nil
@@ -17,7 +17,7 @@ module GameKeeper
     test_game.squares.each_with_index do | square, index | # if there's no winning move for the AI, the AI looks for blocking moves instead.
       if square == nil
         test_game.squares[index] = "O" # If marking that spot would make the human win, the AI moves there instead.
-        if GameKeeper.winner(test_game) == "O"
+        if GameKeeper.winner(test_game) == "You won!"
           return index
         else
           test_game.squares[index] = nil
@@ -59,13 +59,13 @@ end
 
     winners.each do |winner|
       if winner & current_state_x == winner
-        return "X"
+        return "You Lost!"
       elsif winner & current_state_o == winner
-        return "O"
+        return "You won!"
       end
     end
 
-    return nil #returns nil if there's no winner
+    return nil
   end  
 end
 
