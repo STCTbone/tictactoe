@@ -14,8 +14,8 @@
     player_square.after("O");
     player_square.remove();
 
-    var winner = <%= @winner  %>;
-    if(winner) {
-         $('#winner').slideToggle("slow");
-    }
+    <% if @winner || @game.squares.compact.count == 9 %>
+         $('#winner').find("h2").text("<%= @winner ||  raw("It's a Draw!") %>");
+         $('#winner').slideDown("slow");
+    <% end %>
 

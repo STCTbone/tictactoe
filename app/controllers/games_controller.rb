@@ -18,13 +18,14 @@ class GamesController < ApplicationController
     @game.move(@player_square, :player)
     @ai_square = GameKeeper.ai_move(@game)
     @game.move(@ai_square, :ai) unless @game.squares.compact.count == 9
-    @winner = GameKeeper.winner(@game) || "" # need to convert nil to an empty string because javascript recognizes null, not nil
+    @winner = GameKeeper.winner(@game)# need to convert nil to an empty string because javascript recognizes null, not nil
+    Gon.winner = @winner
 
-    #respond_to do |format|
+    respond_to do |format|
     # # format.html redirect_to game_path(@game)
     #  format.json { head :no_content }
-    #  format.js
-    #end
+      format.js {}
+    end
 
   end
 end
