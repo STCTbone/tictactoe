@@ -6,9 +6,9 @@ class Game < ActiveRecord::Base
 
   def move(square, mover)
     if mover == :player
-      self.squares[square] = "O"
+      self.squares[square] = 'O'
     elsif mover == :ai
-      self.squares[square] = "X"
+      self.squares[square] = 'X'
     end
     self.save
   end
@@ -21,15 +21,15 @@ class Game < ActiveRecord::Base
 
   
   def score
-    if self.winner == "X"
+    if self.winner == 'X'
         return -1
-    elsif self.winner == "O"
+    elsif self.winner == 'O'
     	return 1
     elsif self.squares.compact.count == 9 #a draw
     	return 0
     else # the game isn't over yet
     	lower_scores = self.moves.map { |move| move.score}
-    	self.player == "X" ? lower_scores.min : lower_scores.max
+    	self.player == 'X' ? lower_scores.min : lower_scores.max
     end   
   end
 
