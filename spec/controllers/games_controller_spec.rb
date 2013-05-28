@@ -31,12 +31,10 @@ describe GamesController do
       Game.stub(:find_by_id).and_return(game)
     end
     it "should send a message to the game specifying the move" do
-      #pending "need to figure out why RSpec bugs on these after moving some code to a module."
       game.should_receive(:move).twice
       put :move, square: 5, mover: :player 
     end
     it "should redirect to the game being played" do
-      #pending "need to figure out why RSpec bugs on these after moving some code to a module."
       put :move, square: 5, mover: :player
       response.should redirect_to game_path(game)
     end

@@ -19,7 +19,7 @@ let(:game) {Game.create(squares: Array.new(9))}
         game.move(0, :ai)
         game.move(4, :ai)
         game.move(8, :ai)
-        GameKeeper.winner(game).should == "X"
+        GameKeeper.winner(game).should == "You Lost!"
       end
     end
 end
