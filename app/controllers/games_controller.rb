@@ -10,6 +10,7 @@ class GamesController < ApplicationController
   def show
     @game = Game.find_by_id(params[:id])    
     @winner = GameKeeper::winner(@game)
+    gon.winner = ""
 
   end
   def move
@@ -19,7 +20,7 @@ class GamesController < ApplicationController
     @ai_square = GameKeeper.ai_move(@game)
     @game.move(@ai_square, :ai) unless @game.squares.compact.count == 9
     @winner = GameKeeper.winner(@game)# need to convert nil to an empty string because javascript recognizes null, not nil
-    Gon.winner = @winner
+    gon.winner = @winner
 
     respond_to do |format|
     # # format.html redirect_to game_path(@game)
