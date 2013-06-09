@@ -3,6 +3,7 @@ Feature: Game Moves
   As a player
   I want to be able to make my next tic-tac-toe move, and have the AI make the optimal counter-move
 
+  @javascript
   Scenario: Player makes a move
     Given I am playing a game and it is my turn
     When I click on an unoccupied square

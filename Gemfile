@@ -12,6 +12,8 @@ group :development, :test do
   gem 'cucumber-rails', require: false
   gem 'rspec-rails'
   gem 'database_cleaner'
+  gem 'selenium-webdriver'
+  gem 'multi_json', '1.7.2'
 end
 
 

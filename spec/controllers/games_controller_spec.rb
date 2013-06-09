@@ -34,10 +34,6 @@ describe GamesController do
       game.should_receive(:move).twice
       put :move, square: 5, mover: :player 
     end
-    it "should redirect to the game being played" do
-      put :move, square: 5, mover: :player
-      response.should redirect_to game_path(game)
-    end
   end
 
 end
