@@ -16,6 +16,10 @@ group :development, :test do
   gem 'multi_json', '1.7.2'
 end
 
+group :development do
+  gem 'metric_fu'
+end
+
 
 group :production do
   gem 'pg'
