@@ -6,19 +6,19 @@
           <% if square.nil? %>
             <tr><%= render "nil_square", index: index  %>
           <% else %>
-            <tr><td class="square_<%= index %>"><%= square %></td>
+            <tr><%= render "filled_square", square: square, index: index %>
           <% end %>
         <% elsif (index + 1) % 3 == 0 %>
           <% if square.nil? %>
 		  <%= render "nil_square", index: index  %></tr>
           <% else %>
-            <td class="square_<%= index %>" ><%= square %></td></tr>
+            <%= render "filled_square", square: square, index: index %></tr>
           <% end %>
         <% else %>
           <% if square.nil? %>
 		  <%= render "nil_square", index: index  %>
           <% else %>
-            <td class="square_<%= index %>"><%= square %> </td>
+            <%= render "filled_square", square: square, index: index %></td>
           <% end %>
         <% end %>
       <% end %>
